@@ -6,8 +6,11 @@ import com.pi4j.io.gpio.RaspiPin;
 import com.pi4j.system.NetworkInfo;
 
 public class LCD {
+
+    public final static int LCD_ROWS = 2; // No of rows 1/2
     public final static int LCD_ROW_1 = 0;
     public final static int LCD_ROW_2 = 1;
+    public final static int LCD_COLUMNS = 16; //No of columns 
 
     public static void main(String args[]) throws Exception {
 
@@ -17,8 +20,8 @@ public class LCD {
         final GpioController gpio = GpioFactory.getInstance();
 
         // initialize LCD
-        final GpioLcdDisplay lcd = new GpioLcdDisplay(2,    // number of row supported by LCD
-                                                16,       // number of columns supported by LCD
+        final GpioLcdDisplay lcd = new GpioLcdDisplay(LCD_ROWS,    // number of row supported by LCD
+                                                LCD_COLUMNS,       // number of columns supported by LCD
                                                 RaspiPin.GPIO_09,  // LCD RS pin
                                                 RaspiPin.GPIO_08,  // LCD strobe pin
                                                 RaspiPin.GPIO_07,  // LCD data bit D4
